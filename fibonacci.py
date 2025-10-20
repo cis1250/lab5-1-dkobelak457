@@ -11,8 +11,18 @@
 # Use a for loop to print the Fibonacci sequence up to that many terms.
 
 #While loop takes the user input and checks if it is a valid integer
+def get_input():
+    while True:
+        n = input("Enter how many Fibonacci Sequence integers do you want: ")
+        if n.isdigit():
+            n = int(n)
+            if n > 0:
+                return n
+            print("Choose a positive integer ")
+        else:
+            print("Invalid, enter a whole number ")
 
-def fibonacci():
+def generate_fibonacci(n):
     a = 0
     b = 1
     #for loop takes a then calculates the next fib num using the t as a temp variable
@@ -22,18 +32,9 @@ def fibonacci():
         t = a
         a = b
         b = t + b
-    print()
-    
-while True:
-    n = input("Enter how many Fibonacci Sequence integers do you want: ")
-    #checks if the input is only digits
-    if n.isdigit():
-        n = int(n)
-    #if n is less then 0 then it breaks the loop
-        if n > 0:
-            break
-        else:
-            print("Choose a positive integer ")
-    else:
-        print("Invalid, enter a whole number ")
-fibonacci()
+
+def print_fibonacci():
+    n = get_input()
+    generate_fibonacci(n)
+
+print_fibonacci()
